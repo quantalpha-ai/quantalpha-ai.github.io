@@ -1,54 +1,173 @@
-// Placeholder to allow defining custom styles that override everything else.
-// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+/* Bloomberg Color Variables */
+$darkBackgroundBloomberg: #000;
+$textLightBloomberg: #fff;
+$bloombergRedBloomberg: #dc0a2d;
+$darkBlueBloomberg: #001f3f;
+$lightGrayBloomberg: #e0e0e0;
 
-/* _sass/latex.scss */
+/* Solarized Light Color Variables */
+$darkBackgroundSolarized: #fdf6e3;
+$textLightSolarized: #657b83;
+$bloombergRedSolarized: #007bff;
+$darkBlueSolarized: #073642;
+$darkBlueSolarized: #fff;
+$lightGraySolarized: #eee8d5;
 
-.latex-document {
-    font-family: 'Computer Modern', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff; /* Update background color for a cleaner look */
-    padding: 40px; /* Increase padding for more spacing */
-  }
-  
-  .latex-block {
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    padding: 20px; /* Adjust spacing */
-    margin: 20px 0; /* Adjust spacing */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
-  }
-  
-  .latex-block h3 {
+/* Alternate Colors for LaTeX Blocks */
+$latexBackgroundColor: #f0f0f0;
+$latexBorderColor: #ddd;
+$latexPadding: 20px;
+$latexMargin: 20px 0;
+$latexBoxShadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+$latexHeadingColor: #dc0a2d;
+
+/* Toggle between Bloomberg and Solarized Light Color Scheme */
+$useSolarizedLight: true;
+
+/* Use Color Scheme */
+$darkBackground: if($useSolarizedLight, $darkBackgroundSolarized, $darkBackgroundBloomberg);
+$textLight: if($useSolarizedLight, $textLightSolarized, $textLightBloomberg);
+$bloombergRed: if($useSolarizedLight, $bloombergRedSolarized, $bloombergRedBloomberg);
+$darkBlue: if($useSolarizedLight, $darkBlueSolarized, $darkBlueBloomberg);
+$lightGray: if($useSolarizedLight, $lightGraySolarized, $lightGrayBloomberg);
+
+/* Alternate Colors for LaTeX Blocks */
+.latex-block {
+  background-color: $latexBackgroundColor;
+  border: 1px solid $latexBorderColor;
+  padding: $latexPadding;
+  margin: $latexMargin;
+  box-shadow: $latexBoxShadow;
+
+  h3 {
     font-size: 1.2em;
-    margin-bottom: 10px; /* Adjust spacing */
-    color: #007bff; /* Change heading color for emphasis */
+    margin-bottom: 10px;
+    color: if($useSolarizedLight, $bloombergRedSolarized, $latexHeadingColor);
   }
-  
-  .latex-block p {
+
+  p {
     margin: 0; /* Remove paragraph margin to reduce spacing */
     line-height: 1.8; /* Adjust line height for better readability */
+    color: $textLightSolarized; /* Ensure consistent text color */
   }
-  
+}
 
-  /* _sass/about.scss */
+/* Color Scheme */
+body {
+  background-color: $darkBackground;
+  color: $textLight;
+}
 
-.about-page {
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
-    line-height: 1.8;
-    color: #333;
-    background-color: #f8f8f8;
-    padding: 40px;
+a {
+  color: $bloombergRed;
+}
+
+/* Typography */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+/* Layout */
+.header,
+.footer {
+  background-color: $darkBlue;
+  color: $textLight;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Specific Components */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Custom Styles for Lightening Header Links */
+.site-header .site-title,
+.site-header .page-link {
+  color: $textLight;
+}
+
+/* General Styling */
+.hero-section {
+  background-color: $darkBlue;
+  color: $textLight;
+  padding: 40px;
+}
+
+.hero-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 1em;
+}
+
+.hero-subtitle {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+/* Custom Styles for Typing Animation */
+@keyframes typing {
+  from {
+    width: 0;
   }
-  
-  .about-page a {
-    color: #007bff;
-    text-decoration: none;
-  
-    &:hover {
-      text-decoration: underline;
-    }
+  to {
+    width: 100%;
   }
-  
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+#typing-container {
+  display: flex;
+  align-items: center;
+}
+
+#typing-text {
+  font-family: 'Courier New', monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
+}
+
+#typing-cursor {
+  animation: blinkCursor 1s step-end infinite;
+  color: $textLight;
+  display: inline-block;
+  width: 8px; /* Adjust the width of the cursor */
+  height: 2px; /* Adjust the height of the cursor */
+  background-color: $textLight; /* Ensure the cursor is white */
+  margin-left: 2px; /* Adjust the spacing between text and cursor */
+  transform: translateY(7px); /* Move the cursor down by 2px to look like an underscore */
+}
+
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Custom Styles for Typing Animation (Mobile) */
+@media screen and (max-width: 600px) {
+  #typing-text,
+  #typing-cursor {
+    font-size: 0.8em;
+  }
+}
