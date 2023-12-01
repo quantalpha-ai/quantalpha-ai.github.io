@@ -118,34 +118,10 @@ td, th {
   margin-bottom: 10px;
 }
 
-/* Custom Styles for Typing Animation */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
 #typing-container {
-  display: flex;
   align-items: center;
 }
 
-#typing-text {
-  font-family: 'Courier New', monospace;
-  overflow: hidden;
-  white-space: nowrap;
-  display: inline-block;
-  animation: typing 3s steps(40, end) forwards, blink 0.7s step-end infinite;
-}
 
 #typing-cursor {
   animation: blinkCursor 1s step-end infinite;
@@ -154,8 +130,8 @@ td, th {
   width: 8px; /* Adjust the width of the cursor */
   height: 2px; /* Adjust the height of the cursor */
   background-color: $textLight; /* Ensure the cursor is white */
-  margin-left: 2px; /* Adjust the spacing between text and cursor */
-  transform: translateY(7px); /* Move the cursor down by 2px to look like an underscore */
+  margin-left: 0px; /* Adjust the spacing between text and cursor */
+  transform: translateY(2px); /* Move the cursor down by 2px to look like an underscore */
 }
 
 @keyframes blinkCursor {
@@ -164,10 +140,3 @@ td, th {
   }
 }
 
-/* Custom Styles for Typing Animation (Mobile) */
-@media screen and (max-width: 600px) {
-  #typing-text,
-  #typing-cursor {
-    font-size: 0.8em;
-  }
-}

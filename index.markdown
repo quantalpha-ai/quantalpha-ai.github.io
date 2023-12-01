@@ -6,7 +6,8 @@ title: Home
 <div class="hero-section">
   <h1 class="hero-title">
     <span id="typing-container">
-      <span id="typing-text">Quant Finance 2.0 for Digital Assets</span>
+      <span id="line1"></span>
+      <span id="line2"></span>
       <span id="typing-cursor" class="cursor"></span>
     </span>
   </h1>
@@ -30,3 +31,35 @@ title: Home
     </p>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const cursor = document.getElementById('typing-cursor');
+    line1.style.fontFamily = 'Courier New, monospace'; // Apply the font-family to line1
+
+    const typeWriter = (text, element, i, cb) => {
+      if (i < text.length) {
+        element.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(() => typeWriter(text, element, i, cb), 50);
+      } else {
+        cb();
+      }
+    };
+
+    const startTyping = () => {
+      typeWriter("Quant Finance 2.0", line1, 0, () => {
+        line1.innerHTML += '<br>'; // Add line break
+        line2.style.fontFamily = 'Courier New, monospace'; // Apply the font-family to line2
+        cursor.style.animation = 'blinkCursor 1s step-end infinite';
+        setTimeout(() => {
+          typeWriter("for Digital Assets", line2, 0, () => {});
+        }, 1000); // Adjust the delay based on your preference
+      });
+    };
+
+    startTyping();
+  });
+</script>
