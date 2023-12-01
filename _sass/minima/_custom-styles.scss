@@ -1,3 +1,6 @@
+// Placeholder to allow defining custom styles that override everything else.
+// (Use `_sass/minima/custom-variables.scss` to override variable defaults)
+
 /* _sass/latex.scss */
 
 .latex-document {
@@ -26,5 +29,26 @@
   .latex-block p {
     margin: 0; /* Remove paragraph margin to reduce spacing */
     line-height: 1.8; /* Adjust line height for better readability */
+  }
+  
+
+  /* _sass/about.scss */
+
+.about-page {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+    background-color: #f8f8f8;
+    padding: 40px;
+  }
+  
+  .about-page a {
+    color: #007bff;
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
   }
   
