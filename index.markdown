@@ -51,7 +51,6 @@ title: Home
 
     const startTyping = () => {
       typeWriter("Quant Finance 2.0 ", line1, 0, () => {
-        line1.innerHTML += '<br>'; // Add line break
         line2.style.fontFamily = 'Courier New, monospace'; // Apply the font-family to line2
         cursor.style.animation = 'blinkCursor 1s step-end infinite';
         setTimeout(() => {
