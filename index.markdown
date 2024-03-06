@@ -13,7 +13,7 @@ title: Home
   </h1>
 
   <p>
-    QuantAlpha is a trading firm building <strong>Quant Finance 2.0 for Digital Assets</strong>.
+    QuantAlpha is a software engineering company dedicated to developing cutting-edge technologies and software systems that enable <strong>Quant Finance 2.0 for Digital Assets</strong>.
   </p>
 
   <p>
