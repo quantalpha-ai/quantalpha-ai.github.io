@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Source Serif 4", serif;
+}
+
+#typing-container {
+  align-items: end;
+  display: flex;
+}
+#typing-container * {
+  font-family: "Courier New, monospace";
+  font-size: 1.5rem;
+  line-height: 100%;
+}
+#typing-cursor {
+  animation: blinkCursor 1s step-end infinite;
+  color: #657b83;
+  display: inline-block;
+  width: 8px;
+  height: 2px;
+  background-color: #657b83;
+  margin-left: 0px;
+  transform: translateY(2px);
+}
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
+}
