@@ -32,9 +32,11 @@ export const TypingCursor = () => {
   }, [])
   return (
     <span id="typing-container" className="font-mono">
-      <span id="line1" className="font-mono"></span>
-      <span id="line2" className="ml-2 font-mono"></span>
-      <span id="typing-cursor" className="cursor font-mono"></span>
+      <div className="flex justify-start flex-col md:flex-row">
+        <span id="line1" className="text-2xl font-mono" />
+        <span id="line2" className="text-2xl md:ml-2 font-mono" />
+      </div>
+      <span id="typing-cursor" className="text-2xl cursor font-mono" />
     </span>
   )
 }
