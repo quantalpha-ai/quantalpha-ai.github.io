@@ -1,7 +1,7 @@
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  basePath: "/quantalpha-ai.github.io",
+  basePath: "/",
   output: "export",
   images: {
     unoptimized: true,
