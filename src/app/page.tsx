@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { Logo } from "@/svg/QuantAlphaAI"
 import { TypingCursor } from "./components/TypingCursor"
 import clsx from "clsx"
@@ -9,6 +10,11 @@ const headingText = "text-xl sm:text-2xl font-medium text-[#0E638E] mb-2 md:mb-3
 const mainContentRowsStyle = "flex flex-col gap-8 md:gap-12 lg:gap-16 my-8 sm:my-12 md:my-20"
 const proseStyle = "flex flex-col gap-6"
 const colorBoxStyle = "bg-[#BF523D]/5 p-4 md:p-6 rounded-lg border-2 border-[#BF523D]/10"
+
+export const metadata: Metadata = {
+  title: 'QuantAlpha AI',
+  description: 'Deploying cutting-edge, rapidly advancing machine learning technologies, data analytics, artificial intelligence, deep learning, and generative AI in quantitative trading.',
+}
 
 export default function Home() {
   return (
